@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://dxv8d4rjt772f"]
+
+[ext_resource type="Script" uid="uid://bm5fed80b6tty" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ctjcov6oc3q8q" path="res://coin.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://s08darbhjmds" path="res://images-removebg-preview.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cjsukgojefdp4" path="res://tailscoin.png" id="4_lquwl"]
+[ext_resource type="AudioStream" uid="uid://cko2ny7wjynwp" path="res://electroanimals-jazz-casino-593404.mp3" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bkblcaflryiuh" path="res://Soaker.webp" id="6_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1161, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsetp"]
+size = Vector2(38.5, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(35, 650)
+
+[node name="Main" type="Node2D" unique_id=189036475]
+script = ExtResource("1_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=246247769]
+offset_left = 29.0
+offset_top = -1.0
+offset_right = 1145.0
+offset_bottom = 628.0
+color = Color(0.043137256, 0.23137255, 0.18039216, 1)
+
+[node name="Coin" parent="." unique_id=2007069092 instance=ExtResource("2_h2yge")]
+position = Vector2(289, 565)
+heads_texture = ExtResource("3_1bvp3")
+tails_texture = ExtResource("4_lquwl")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=249386850]
+position = Vector2(84, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=291460627]
+position = Vector2(498, 567)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=741265546]
+offset_left = -85.0
+offset_top = 558.0
+offset_right = 1068.0
+offset_bottom = 584.0
+color = Color(0.24313726, 0.15294118, 0.13725491, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1132434021]
+position = Vector2(89, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1767264021]
+position = Vector2(-68, 259)
+shape = SubResource("RectangleShape2D_fsetp")
+
+[node name="ColorRect" type="ColorRect" parent="LeftWall" unique_id=588488263]
+offset_left = -90.0
+offset_top = -104.0
+offset_right = -55.0
+offset_bottom = 587.0
+color = Color(0.24313726, 0.15294118, 0.13725491, 1)
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1190783347]
+position = Vector2(69, 68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1303780450]
+position = Vector2(1059, 262)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="ColorRect" type="ColorRect" parent="RightWall" unique_id=1607952690]
+offset_left = 1048.0
+offset_top = -87.0
+offset_right = 1083.0
+offset_bottom = 584.0
+color = Color(0.24313726, 0.15294118, 0.13725491, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=640287784]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=69239650]
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.056
+anchor_right = 0.30800003
+anchor_bottom = 0.056
+offset_left = 306.18396
+offset_top = 137.712
+offset_right = 749.18396
+offset_bottom = 162.712
+text = "Get 1000 points to win a Mountain Dew Super Soaker TM!"
+
+[node name="HeadsButton" type="Button" parent="CanvasLayer" unique_id=2060623432]
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.067
+anchor_right = 0.18800001
+anchor_bottom = 0.067
+offset_left = -180.576
+offset_top = 446.58398
+offset_right = -59.576004
+offset_bottom = 582.584
+text = "Heads
+"
+
+[node name="TailsButton" type="Button" parent="CanvasLayer" unique_id=578829696]
+anchors_preset = -1
+anchor_left = 0.135
+anchor_top = 0.057000004
+anchor_right = 0.135
+anchor_bottom = 0.057000004
+offset_left = 840.48
+offset_top = 452.064
+offset_right = 959.48
+offset_bottom = 587.064
+text = "Tails"
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer" unique_id=519975603]
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_top = 0.056
+anchor_right = 0.30800003
+anchor_bottom = 0.056
+offset_left = 89.18396
+offset_top = -37.288002
+offset_right = 138.18396
+offset_bottom = -12.288002
+text = "Ready"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=1732822001]
+anchors_preset = -1
+anchor_left = 0.24000001
+anchor_top = 0.136
+anchor_right = 0.24000001
+anchor_bottom = 0.136
+offset_left = 166.51999
+offset_top = -67.128006
+offset_right = 206.51999
+offset_bottom = -44.128006
+text = "0"
+
+[node name="CashOutButton" type="Button" parent="CanvasLayer" unique_id=478281025]
+offset_left = 37.0
+offset_top = -3.0
+offset_right = 162.0
+offset_bottom = 78.0
+text = "Cash Out!"
+
+[node name="GuessTimer" type="Timer" parent="." unique_id=1838802505]
+wait_time = 2.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=196295302]
+position = Vector2(573, 320)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1200900734]
+stream = ExtResource("5_lquwl")
+autoplay = true
+parameters/looping = true
+
+[node name="Soaker" type="Sprite2D" parent="." unique_id=997375036]
+position = Vector2(987, 82)
+scale = Vector2(0.23809534, 0.23785713)
+texture = ExtResource("6_7mycd")

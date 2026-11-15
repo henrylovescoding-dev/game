@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ctjcov6oc3q8q"]
+
+[ext_resource type="Script" uid="uid://vorw33y5q2q5" path="res://coin.gd" id="1_0t63x"]
+[ext_resource type="Texture2D" uid="uid://s08darbhjmds" path="res://images-removebg-preview.png" id="2_v7riw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ks110"]
+friction = 0.2
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsetp"]
+radius = 43.011627
+
+[node name="Coin" type="RigidBody2D" unique_id=2007069092]
+position = Vector2(548, 574)
+physics_material_override = SubResource("PhysicsMaterial_ks110")
+gravity_scale = 0.8
+script = ExtResource("1_0t63x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355905634]
+position = Vector2(99, 13)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_v7riw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900923623]
+position = Vector2(99, 13)
+shape = SubResource("CircleShape2D_fsetp")
